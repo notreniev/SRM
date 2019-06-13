@@ -28,7 +28,6 @@ import com.srm.utils.Utils;
 /**
  * 
  * @author Everton Canez
- * @hidden
  */
 @Path("/clientes")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
