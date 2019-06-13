@@ -1,0 +1,63 @@
+<div class="row">
+
+	<!-- form -->
+	<div class="col-md-6">
+
+		<!-- mensagens -->
+		<toast></toast>
+
+		<div class="form-group">
+			<form name="formCliente">
+				<h3>
+					<span class="label">*Nome do cliente</span>
+				</h3>
+				<div class="form-group row text-center">
+					<div class="col-md-8">
+						<input class="form-control" type="text" name="nome_cliente" ng-model="cliente.nome_cliente"
+							ng-required="true" ng-focus="true" placeholder="Nome do Cliente" />
+
+						<p ng-show="formCliente.nome_cliente.$error.required && formCliente.nome_cliente.$dirty"
+							class="alert alert-danger">Por favor, preencha o campo NOME DO CLIENTE!</p>
+
+						<input class="form-control" type="text" name="limite_credito" ng-model="cliente.limite_credito"
+							ng-required="false" ng-focus="true" placeholder="Limite de crédito" />
+
+						<p ng-show="formCliente.limite_credito.$error.required && formCliente.limite_credito.$dirty"
+							class="alert alert-danger">Por favor, preencha o campo LIMITE DE CRÉDITO!</p>
+
+						<select class="form-control" name="risco" ng-model="cliente.risco">
+							<option value="">-Risco-</option>
+							<option value="1" ng-selected="{{cliente.risco=='1'}}">A</option>
+							<option value="2" ng-selected="{{tipoSelecionado=='2'}}">B</option>
+							<option value="3" ng-selected="{{tipoSelecionado=='3'}}">C</option>
+						</select>
+
+						<p ng-show="formCliente.risco.$error.required && formCliente.risco.$dirty"
+							class="alert alert-danger">Por favor, preencha o campo RISCO!</p>
+
+					</div>
+				</div>
+
+			</form>
+		</div>
+
+		<div class="bottom">
+			<a class="btn btn-danger" role="button" ng-click="excluir()">Excluir</a>
+			<button class="btn btn-primary" ng-click="gravarDados(cliente)"
+				ng-disabled="formCliente.$invalid">Salvar</button>
+			<a href="#/clientes " class="btn btn-default " role="button ">Voltar</a>
+		</div>
+
+	</div>
+
+	<!-- result  -->
+	<div class="col-md-6" ng-if="result.authorization.length">
+		<h4>Resultado:</h4>
+		<pre style="background-color: #FFE299">{{result | json}}</pre>
+		<div style="padding-left: 10px; text-align: center">
+			<small>Foi enviado um e-mail para o endereço da equipe contendo a chave de acesso e informações de como
+				utilizá-la.</small>
+		</div>
+	</div>
+</div>
+<div loading-indicator style="display: none"></div>

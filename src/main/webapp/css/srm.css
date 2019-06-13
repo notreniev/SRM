@@ -1,0 +1,15 @@
+.label {
+    color: #fff !important;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.label_white {
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+}
+
+div .alert ul li {
+    list-style-type: none;
+}

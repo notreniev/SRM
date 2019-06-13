@@ -1,0 +1,55 @@
+<!-- título -->
+<div class="page-header row">
+    <div class="col-md-12">
+        <h1>Cliente<br><small>Lista</small></h1>
+    </div>
+</div>
+
+<!-- deck de botões -->
+<div class="row apm-deck">
+    <div class="col-md-12">
+        <a class="btn btn-primary" href="#/cliente" role="button">Novo cliente</a>
+        <div class="form-group hidden-xs pull-right">
+            <input class="form-control pull-right" type="text" ng-model="criterioDeBusca" placeholder="Filtro" />
+        </div>
+    </div>
+</div>
+
+<!-- lista de dados -->
+<div class="row">
+    <div class="col-md-12">
+
+        <!-- mensagens -->
+        <toast></toast>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome do cliente</th>
+                        <th>Limite de crédito</th>
+                        <th>Taxa</th>
+                        <th>Risco</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cliente in clientes | filter:criterioDeBusca">
+                        <td>
+                            <a href="#/cliente/{{cliente.idCliente}}">{{cliente.nomeCliente}}</a>
+                        </td>
+                        <td>
+                            {{cliente.limiteCredito}}
+                        </td>
+                        <td>
+                            {{cliente.taxa}}
+                        </td>
+                        <td ng-class="{'label_white label-success': cliente.risco == 1, 'label_white label-danger': cliente.risco > 1} ">{{cliente.risco}}</td>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div loading-indicator style="display: none"></div>

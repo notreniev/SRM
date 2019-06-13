@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="App">
+
+<head>
+    <META charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SRM - Clientes">
+    <meta name="author" content="Start Bootstrap">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/srm.css" type="text/css">
+
+    <title>SRM - Clientes</title>
+</head>
+
+<body ng-controller="AppController">
+
+    <div class="container">
+        <div class="page-header">
+            <h1>
+				SRM <small><br>Cadastro de Clientes</small>
+			</h1>
+        </div>
+
+        <div class="panel-heading" style="float: right">
+            <div ng-include="'www/includes/menu.html'"></div>
+        </div>
+
+    </div>
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div ng-view autoscroll="true"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div ng-include="'www/includes/footer.html'"></div>
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="bower_components/ngToast/dist/ngToast.min.js"></script>
+
+    <script src="js/app.module.js"></script>
+    <script src="js/app.config.js"></script>
+    <script src="js/app.controller.js"></script>
+
+    <script src="www/views/cliente/clienteListaController.js"></script>
+    <script src="www/views/cliente/clienteEdicaoController.js"></script>
+
+</body>
+
+</html>

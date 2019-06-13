@@ -1,0 +1,159 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>SRM</groupId>
+	<artifactId>srm</artifactId>
+	<version>v1</version>
+	<packaging>war</packaging>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<build>
+		<finalName>srm</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<outputDirectory>/Users/everton/jboss-eap-7.0/standalone/deployments/</outputDirectory>
+				</configuration>
+			</plugin>
+		<plugin>
+		    <groupId>com.sebastian-daschner</groupId>
+		    <artifactId>jaxrs-analyzer-maven-plugin</artifactId>
+		    <version>0.16</version>
+		    <executions>
+		        <execution>
+		            <phase>prepare-package</phase>
+		            <goals>
+		                <goal>analyze-jaxrs</goal>
+		            </goals>
+		            <configuration>
+		                <renderSwaggerTags>true</renderSwaggerTags>
+		                <resourcesDir>${project.build.finalName}/apidocs</resourcesDir>
+		                <swaggerTagsPathOffset>0</swaggerTagsPathOffset>
+		                <backend>swagger</backend>
+		                <swaggerSchemes>http,https</swaggerSchemes>
+		            </configuration>
+		        </execution>
+		    </executions>
+		</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+				      <groupId>com.procergs</groupId>
+				      <artifactId>jaxrs-analyzer-maven-plugin</artifactId>
+				      <version>1.0.4</version>
+				      <executions>
+				           <execution>
+				               <goals>
+				                   <goal>analyze-jaxrs</goal>
+				               </goals>
+				            </execution>
+				      </executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec</groupId>
+			<artifactId>jboss-javaee-6.0</artifactId>
+			<version>3.0.3.Final</version>
+			<scope>provided</scope>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mailapi</artifactId>
+			<version>1.4.3</version>
+		</dependency>
+
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.0.4.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- rest -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>2.3.7.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Precisa empacotar para formatar Date/Calendar -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson-provider</artifactId>
+			<version>2.3.7.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20140107</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.21</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>oracle</groupId>
+		    <artifactId>ojdbc6</artifactId>
+		    <version>11.1.0.7.0</version>
+		</dependency>
+		<dependency>
+  		<groupId>io.swagger</groupId>
+  			<artifactId>swagger-jaxrs</artifactId>
+  			<version>1.5.7</version>
+		</dependency>
+	</dependencies>
+</project>
